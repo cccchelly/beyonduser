@@ -1,0 +1,128 @@
+class WeaStaDataData {
+
+  num co2;
+  String days;
+  String hours;
+  num hv;
+  num inCo2;
+  num inHum;
+  num inHv;
+  num inPm10;
+  num inPm25;
+  num inSoilEc;
+  num inSoilHum;
+  num inSoilPh;
+  num inSoilTerm;
+  num inTerm;
+  num lastDayRainfall;
+  num leak;
+  String mounths;
+  num noise;
+  num pm10;
+  num soilHum;
+  num soilTerm;
+  num transRainfall;
+  num warn;
+  num wdirAngle;
+  num windPower;
+  String year;
+  num airPressure;
+  num hum;
+  num currentRainfall;
+  String id;
+  num pm25;
+  num soilEc;
+  num soilPh;
+  num term;
+  num totalRainfall;
+  num wdir;
+  num windSpeed;
+  num recordTime;
+
+  WeaStaDataData({this.recordTime,this.co2, this.days, this.hours, this.hv, this.inCo2, this.inHum, this.inHv, this.inPm10, this.inPm25, this.inSoilEc, this.inSoilHum, this.inSoilPh, this.inSoilTerm, this.inTerm, this.lastDayRainfall, this.leak, this.mounths, this.noise, this.pm10, this.soilHum, this.soilTerm, this.transRainfall, this.warn, this.wdirAngle, this.windPower, this.year, this.airPressure, this.hum, this.currentRainfall, this.id, this.pm25, this.soilEc, this.soilPh, this.term, this.totalRainfall, this.wdir, this.windSpeed});
+
+  WeaStaDataData.fromJson(Map<String, dynamic> json) {   
+    this.recordTime = json['recordTime'];
+    this.co2 = json['co2'];
+    this.days = json['days'];
+    this.hours = json['hours'];
+    this.hv = json['hv'];
+    this.inCo2 = json['inCo2'];
+    this.inHum = json['inHum'];
+    this.inHv = json['inHv'];
+    this.inPm10 = json['inPm10'];
+    this.inPm25 = json['inPm25'];
+    this.inSoilEc = json['inSoilEc'];
+    this.inSoilHum = json['inSoilHum'];
+    this.inSoilPh = json['inSoilPh'];
+    this.inSoilTerm = json['inSoilTerm'];
+    this.inTerm = json['inTerm'];
+    this.lastDayRainfall = json['lastDayRainfall'];
+    this.leak = json['leak'];
+    this.mounths = json['mounths'];
+    this.noise = json['noise'];
+    this.pm10 = json['pm10'];
+    this.soilHum = json['soilHum'];
+    this.soilTerm = json['soilTerm'];
+    this.transRainfall = json['transRainfall'];
+    this.warn = json['warn'];
+    this.wdirAngle = json['wdirAngle'];
+    this.windPower = json['windPower'];
+    this.year = json['year'];
+    this.airPressure = json['airPressure'];
+    this.hum = json['hum'];
+    this.currentRainfall = json['currentRainfall'];
+    this.id = json['id'];
+    this.pm25 = json['pm25'];
+    this.soilEc = json['soilEc'];
+    this.soilPh = json['soilPh'];
+    this.term = json['term'];
+    this.totalRainfall = json['totalRainfall'];
+    this.wdir = json['wdir'];
+    this.windSpeed = json['windSpeed'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['recordTime'] = this.recordTime;
+    data['co2'] = this.co2;
+    data['days'] = this.days;
+    data['hours'] = this.hours;
+    data['hv'] = this.hv;
+    data['inCo2'] = this.inCo2;
+    data['inHum'] = this.inHum;
+    data['inHv'] = this.inHv;
+    data['inPm10'] = this.inPm10;
+    data['inPm25'] = this.inPm25;
+    data['inSoilEc'] = this.inSoilEc;
+    data['inSoilHum'] = this.inSoilHum;
+    data['inSoilPh'] = this.inSoilPh;
+    data['inSoilTerm'] = this.inSoilTerm;
+    data['inTerm'] = this.inTerm;
+    data['lastDayRainfall'] = this.lastDayRainfall;
+    data['leak'] = this.leak;
+    data['mounths'] = this.mounths;
+    data['noise'] = this.noise;
+    data['pm10'] = this.pm10;
+    data['soilHum'] = this.soilHum;
+    data['soilTerm'] = this.soilTerm;
+    data['transRainfall'] = this.transRainfall;
+    data['warn'] = this.warn;
+    data['wdirAngle'] = this.wdirAngle;
+    data['windPower'] = this.windPower;
+    data['year'] = this.year;
+    data['airPressure'] = this.airPressure;
+    data['hum'] = this.hum;
+    data['currentRainfall'] = this.currentRainfall;
+    data['id'] = this.id;
+    data['pm25'] = this.pm25;
+    data['soilEc'] = this.soilEc;
+    data['soilPh'] = this.soilPh;
+    data['term'] = this.term;
+    data['totalRainfall'] = this.totalRainfall;
+    data['wdir'] = this.wdir;
+    data['windSpeed'] = this.windSpeed;
+    return data;
+  }
+
+}
