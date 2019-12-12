@@ -327,8 +327,8 @@ static Future getFixDetail(String mno)async{
 }
 
 //上传照片
-static Future postPicture(File file,String name)async{
-    FormData formData = FormData.from({'file': UploadFileInfo(file,name)});
+static Future postPicture(List<int> bytes,String name)async{
+    FormData formData = FormData.from({'file': UploadFileInfo.fromBytes(bytes, name)});
 
     var response = await http.post<Map>('${AppConstans.URL_AFTER_SALES}upload/fileObj',data: formData);
     return UploadPictureData.fromJson(response.data);

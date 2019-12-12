@@ -1,10 +1,12 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:beyond_user/model/qr_device_msg_data.dart';
 import 'package:beyond_user/model/upload_picture_data.dart';
 import 'package:beyond_user/network/api.dart';
 import 'package:beyond_user/provider/view_state_model.dart';
 import 'package:beyond_user/utlis/log_util.dart';
+import 'package:flutter/services.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:oktoast/oktoast.dart';
 
@@ -69,6 +71,7 @@ class ApplyFixViewModel extends ViewStateModel {
         'deviceType' : 'LAMP',
         'toCode' : 2,
       });
+
     }catch (e){
       return false;
     }
@@ -91,11 +94,18 @@ class ApplyFixViewModel extends ViewStateModel {
       });
       finalPicUrl =  urlString.substring(0,urlString.length-1);
     }else{
-      String filePath = await assets[0].filePath;
       String name = assets[0].name;
-      UploadPictureData pictureData = await Api.postPicture(new File(filePath),name);
-      pictures.add(pictureData);
-      assets.removeAt(0);
+        ByteData byteData = await assets[0].getByteData(quality: 100);
+        Uint8List imageBytes = byteData.buffer.asUint8List();
+
+      try{
+        UploadPictureData pictureData = await Api.postPicture(imageBytes,name);
+        pictures.add(pictureData);
+        assets.removeAt(0);
+      }catch (e){
+        MyLogUtil.log('上传出错${e.toString()}');
+      }
+
       await cycleUpload(assets);
     }
   }

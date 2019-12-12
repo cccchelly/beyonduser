@@ -16,6 +16,7 @@ class AppConstans{
   //线上
   static const String BASE_URL = "https://wechat.scyphr.com/v1/";
 
+  static const String IOS_GAODE_KEY = '288a51b7895f37d149b441b57454e5c1';
 
   static const String URL_AUTH = 'auth-server/';
   static const String URL_FOREMOOD = 'fourmood-web/';

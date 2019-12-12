@@ -8,6 +8,7 @@ import 'package:beyond_user/ui/pages/lamp_install/lamp_install_detail.dart';
 import 'package:beyond_user/ui/pages/local_lamp/lamp_map_local.dart';
 import 'package:beyond_user/ui/pages/net_lamp/lamp_detail_net.dart';
 import 'package:beyond_user/ui/pages/qrcode_page.dart';
+import 'package:beyond_user/ui/pages/spore/spore_detail.dart';
 import 'package:beyond_user/utlis/log_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -60,6 +61,7 @@ class RouteName {
   static const String video_ball_show = '/videoballshow';
   static const String video_ball_pic = '/videoballpic';
   static const String spore_list = '/sporelist';
+  static const String spore_detail = '/sporedetail';
   static const String soil_detail = '/soildetail';
 
   static const String lamp_list_local = '/lamplistlocal';
@@ -115,6 +117,8 @@ class Router {
         return NoAnimRouteBuilderWithParms(VideoBallPic(), settings);
       case RouteName.spore_list:
         return NoAnimRouteBuilder(Spore());
+      case RouteName.spore_detail:
+        return NoAnimRouteBuilderWithParms(SporeDetail(), settings);
       case RouteName.soil:
         return NoAnimRouteBuilder(Soil());
       case RouteName.soil_detail:

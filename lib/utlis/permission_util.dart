@@ -5,6 +5,10 @@ class PermissionUtil{
  static requestCameraPermission() async{
     return await _request(PermissionGroup.camera);
   }
+
+  static requestLocation()async{
+   return await _request(PermissionGroup.location);
+  }
   
   static _request(PermissionGroup p) async{
     bool isCameraGot = await _isPermissionGot(p);

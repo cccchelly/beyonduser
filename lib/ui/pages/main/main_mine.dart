@@ -828,7 +828,7 @@ class MainMineState extends State<MainMine> {
                               child: new Column(
                                 children: [
                                   Image.asset(
-                                    'images/gcbcjb .png',
+                                    'images/gcbcjb.png',
                                     width: 28,
                                     height: 28,
                                   ),
