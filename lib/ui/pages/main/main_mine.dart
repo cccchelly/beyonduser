@@ -496,8 +496,9 @@ class MainMineState extends State<MainMine> {
                                 left: 18, top: 18, bottom: 25),
                             child: InkWell(
                               onTap: () {
-                                Navigator.of(context)
-                                    .pushNamed(RouteName.spore_list);
+                                /*Navigator.of(context)
+                                    .pushNamed(RouteName.spore_list);*/
+                                _noDevice(model);
                               },
                               child: new Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,

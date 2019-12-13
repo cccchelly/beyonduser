@@ -53,7 +53,7 @@ dependencies:
   #评分控件
   flutter_rating_bar: ^2.0.0
   #地图
-  amap_map_fluttify: ^0.11.0
+  amap_map_fluttify: ^0.12.3
   # Base Component
   # WebView iOS添加键值对 o.flutter.embedded_views_preview = YES
   webview_flutter: ^0.3.13

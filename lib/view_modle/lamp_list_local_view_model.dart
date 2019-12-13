@@ -9,7 +9,7 @@ class LampListLocalViewModel extends ViewStateRefreshListModel<LampListModel>{
 
   @override
   Future<List<LampListModel>> loadData({int pageNum}) async{
-    //1或者不传  远程  2非远程
+    //1或者不传  远程  2非远程  3远程初始位置
     return await Api.getLampList(
         ShareUtil.instance().getUserName(),
         '2', null, pageNum, 10);

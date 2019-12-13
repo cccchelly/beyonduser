@@ -226,7 +226,7 @@ class Api {
       String type,
       int machineStatus,
       int pageNum,
-      int pageSize
+      num pageSize
       ) async{
     var response = await http.get<Map>('${AppConstans.URL_LAMP_REST}lamp/list',queryParameters: {
       'owner' : name,

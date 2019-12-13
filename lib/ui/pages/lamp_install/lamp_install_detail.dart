@@ -1,3 +1,4 @@
+import 'package:amap_map_fluttify/amap_map_fluttify.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:beyond_user/config/app_constans.dart';
@@ -10,6 +11,7 @@ import 'package:beyond_user/provider/provider_widget.dart';
 import 'package:beyond_user/utlis/image_util.dart';
 import 'package:beyond_user/view_modle/lamp_install_detail_view_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:oktoast/oktoast.dart';
 
 class LampInstallDetail extends StatefulWidget {
   @override
@@ -316,11 +318,64 @@ class LampInstallDetailState extends State<LampInstallDetail> {
 
 
   _buildMap(LampInstallDetailViewModel model){
-    return Text('地图');
+    return Container(
+      width: double.infinity,
+      height: 150,
+      margin: const EdgeInsets.only(left: 12,right: 12),
+      child: AmapView(
+        // 地图类型
+        mapType: MapType.Standard,
+        // 是否显示缩放控件
+        showZoomControl: true,
+        // 是否显示指南针控件
+        showCompass: true,
+        // 是否显示比例尺控件
+        showScaleControl: true,
+        // 是否使能缩放手势
+        zoomGesturesEnabled: true,
+        // 是否使能滚动手势
+        scrollGesturesEnabled: true,
+        // 是否使能旋转手势
+        rotateGestureEnabled: true,
+        // 是否使能倾斜手势
+        tiltGestureEnabled: true,
+        // 缩放级别
+        zoomLevel: 10,
+        // 中心点坐标
+        centerCoordinate: LatLng(model.detailData.lat, model.detailData.lng),
+        // 标记
+        markers: _getMarkers(model),
+        //地图点击
+        onMapClicked: (latlng) {
+          //showToast('${latlng.latitude},${latlng.longitude}');
+          return;
+        },
+        // 标识点击回调
+        onMarkerClicked: (marker) {
+          marker.showInfoWindow();
+          return;
+        },
+        // 地图创建完成回调
+        onMapCreated: (controller) async {
+
+        },
+      ),
+    );
   }
 
   @override
   void initState() {
     super.initState();
+  }
+
+  _getMarkers(LampInstallDetailViewModel model) {
+    return [MarkerOption(
+      latLng: LatLng(model.detailData.lat, model.detailData.lng),
+      infoWindowEnabled: true,
+      title: '设备号:${model.detailData.sn}',
+      snippet: '标签:${model.detailData.label}\r\n地址:${model.detailData.address}',
+      iconUri: Uri.parse('images/3.0x/location_on.png'),
+      imageConfig: ImageConfiguration(size: Size(30, 48)),
+    )];
   }
 }
