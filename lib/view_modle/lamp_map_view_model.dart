@@ -9,10 +9,13 @@ class LampMapViewModel extends ViewStateModel{
 
   LampMapViewModel(this.type);
   
-  getLampList() async{
+  getLampList({String type,int machineStatus}) async{
+    if(type != null){
+      this.type = type;
+    }
     setBusy(true);
     //1或者不传  远程  2非远程  3远程初始位置
-    lampList = await Api.getLampList(ShareUtil.instance().getUserName(), type, null, 1, 10000);
+    lampList = await Api.getLampList(ShareUtil.instance().getUserName(), this.type, machineStatus, 1, 10000);
     setOk();
   }
 

@@ -20,7 +20,7 @@ class LampStatueUtil{
     }
   }
 
-  String getLampStatues(){
+  String getLampStatuesEnum(){
     if (isOffline()&&statusCode==0){
       return netError;
     }else if (!isOffline() && statusCode==0){
@@ -32,6 +32,24 @@ class LampStatueUtil{
     }
 
     //没有故障   某一次跟杨露堃他们讨论了后说我们的灯不会故障👏👏
+  }
+  
+  String getLampStatuesStr(){
+    switch(getLampStatuesEnum()){
+      case netError:
+        return '网络异常';
+        break;
+      case normal:
+        return '正常';
+        break;
+      case wait:
+        return '待机';
+        break;
+      case unknown:
+      default:
+        return '未知';
+        break;
+    }
   }
 
 

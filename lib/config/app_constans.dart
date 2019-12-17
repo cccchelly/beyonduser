@@ -35,6 +35,15 @@ class AppConstans{
   
   static const imageUrlTemp = 'http://img1.imgtn.bdimg.com/it/u=3150283855,4248783514&fm=26&gp=0.jpg';
 
+/*  http://192.168.1.33:8769/v1/fourmood-web/v2/api-docs
+//杀虫灯
+  http://192.168.1.33:8769/v1/lamp-rest/v2/api-docs
+
+  http://192.168.1.33:8769/v1/service-user/v2/api-docs
+
+//杀虫灯售后
+  http://192.168.1.33:8769/v1/after-sales/v2/api-docs*/
+
 }
 
 

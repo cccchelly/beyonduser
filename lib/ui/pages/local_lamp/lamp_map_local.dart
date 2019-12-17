@@ -20,6 +20,8 @@ class LampMapLocal extends StatefulWidget {
 }
 
 class LampMapLocalState extends State<LampMapLocal> {
+  Marker clickMarker;
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -70,11 +72,15 @@ class LampMapLocalState extends State<LampMapLocal> {
           markers: _getMarkers(model),
           //地图点击
           onMapClicked: (latlng) {
-            showToast('${latlng.latitude},${latlng.longitude}');
+            //showToast('${latlng.latitude},${latlng.longitude}');
+            try {
+              clickMarker.hideInfoWindow();
+            }catch(e){}
             return;
           },
           // 标识点击回调
           onMarkerClicked: (marker) {
+            clickMarker = marker;
             marker.showInfoWindow();
             return;
           },
@@ -82,14 +88,16 @@ class LampMapLocalState extends State<LampMapLocal> {
           onMapCreated: (controller) async {
             // requestPermission是权限请求方法
             if (await requestPermission()) {
-              //定位
-              //await controller.showMyLocation(true);
+              if(model.lampList.length == 0){
+                //定位
+                await controller.showMyLocation(true);
+              }
 
             }
             //有数据  定位完成后把中心点设置到第一组数据的位置
             if (model.lampList.length != 0) {
-              controller.setCenterCoordinate(
-                  model.lampList[0].lat, model.lampList[0].lng);
+             /* controller.setCenterCoordinate(
+                  model.lampList[0].lat, model.lampList[0].lng);*/
             }
             controller.setInfoWindowClickListener((marker) {
               _showMarkDialog(marker);

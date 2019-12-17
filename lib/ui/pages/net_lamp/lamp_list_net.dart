@@ -297,7 +297,7 @@ class LampListNetState extends State<LampListNet> with SingleTickerProviderState
     String statueStr = '';
     String image = '';
 
-    switch(lampStatueUtil.getLampStatues()){
+    switch(lampStatueUtil.getLampStatuesEnum()){
       case LampStatueUtil.normal:
         statueStr = '正常';
         image = 'images/scd_zc.png';

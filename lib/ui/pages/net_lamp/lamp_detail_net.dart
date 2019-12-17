@@ -31,9 +31,9 @@ class LampDetailNetState extends State<LampDetailNet>
 
   @override
   Widget build(BuildContext context) {
-    //did = ModalRoute.of(context).settings.arguments;
+    did = ModalRoute.of(context).settings.arguments;
     //临时假数据
-    did = 'SN155748045544222033';
+    //did = 'SN155748045544222033';
 
     return new Scaffold(
       body: _buildWidget(),
@@ -983,7 +983,7 @@ class LampDetailNetState extends State<LampDetailNet>
   _getLampStatuesStr(LampDetailViewModel model) {
     LampStatueUtil statueUtil = LampStatueUtil(model.lampDetailMsg.status,
         lastTimeMills: model.lampDetailMsg.time);
-    switch (statueUtil.getLampStatues()) {
+    switch (statueUtil.getLampStatuesEnum()) {
       case LampStatueUtil.normal:
         return '正常';
       case LampStatueUtil.wait:

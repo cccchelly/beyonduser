@@ -802,7 +802,7 @@ class MainMineState extends State<MainMine> {
                             flex: 1,
                             child: InkWell(
                               onTap: () {
-                                _showCloseToast();
+                                Navigator.of(context).pushNamed(RouteName.worm_indentify);
                               },
                               child: new Column(
                                 children: [
@@ -824,7 +824,7 @@ class MainMineState extends State<MainMine> {
                             flex: 1,
                             child: InkWell(
                               onTap: () {
-                                _showCloseToast();
+                                Navigator.of(context).pushNamed(RouteName.orange_indentify);
                               },
                               child: new Column(
                                 children: [

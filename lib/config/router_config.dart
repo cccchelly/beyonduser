@@ -2,10 +2,13 @@
 import 'package:beyond_user/ui/pages/apply_fix/apply_fix.dart';
 import 'package:beyond_user/ui/pages/apply_fix/fix_evaluate.dart';
 import 'package:beyond_user/ui/pages/image_show.dart';
+import 'package:beyond_user/ui/pages/indentify/orange_indentify.dart';
+import 'package:beyond_user/ui/pages/indentify/worm_indentify.dart';
 import 'package:beyond_user/ui/pages/lamp_fix/fix_detail.dart';
 import 'package:beyond_user/ui/pages/lamp_fix/fix_list.dart';
 import 'package:beyond_user/ui/pages/lamp_install/lamp_install_detail.dart';
 import 'package:beyond_user/ui/pages/local_lamp/lamp_map_local.dart';
+import 'package:beyond_user/ui/pages/map_show.dart';
 import 'package:beyond_user/ui/pages/net_lamp/lamp_detail_net.dart';
 import 'package:beyond_user/ui/pages/qrcode_page.dart';
 import 'package:beyond_user/ui/pages/spore/spore_detail.dart';
@@ -80,6 +83,10 @@ class RouteName {
   static const String setting = '/setting';
   static const String qrcode_page = '/qrcode';
   static const String image_show = '/imageshow';
+  static const String map_show = '/mapshow';
+
+  static const String worm_indentify = '/wormindentify';
+  static const String orange_indentify = '/orangeindentify';
 
 }
 
@@ -143,12 +150,20 @@ class Router {
         return NoAnimRouteBuilderWithParms(LampInstallDetail(), settings);
       case RouteName.image_show:
         return NoAnimRouteBuilderWithParms(ImageShow(), settings);
+      case RouteName.map_show:
+        return NoAnimRouteBuilderWithParms(MapShow(), settings);
       case RouteName.fix_detail:
         return NoAnimRouteBuilderWithParms(FixDetail(), settings);
       case RouteName.apply_fix:
         return NoAnimRouteBuilderWithParms(ApplyFix(), settings);
       case RouteName.fix_evaluate:
         return NoAnimRouteBuilderWithParms(FixEvaluate(), settings);
+        break;
+      case RouteName.worm_indentify:
+        return NoAnimRouteBuilder(WormIndentify());
+        break;
+      case RouteName.orange_indentify:
+        return NoAnimRouteBuilder(OrangeIndentify());
         break;
 
       default:

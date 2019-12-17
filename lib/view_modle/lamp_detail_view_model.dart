@@ -13,14 +13,7 @@ class LampDetailViewModel extends ViewStateModel{
 
   getDetail(String lampNo) async{
     setBusy(true);
-    String nowTime = DateUtil.formatDate(DateTime.now(),format: 'yyyy-MM-dd');
-    List<LampDetailMsgModel> lampMsgs =  await Api.getLampStatus(lampNo, '1970-01-01', nowTime, 1, 1);
-    if(lampMsgs==null || lampMsgs.length<=0){
-      showToast('暂无详情数据');
-      
-      return;
-    }
-    lampDetailMsg = lampMsgs[0];
+    lampDetailMsg =  await Api.getLampStatus(lampNo);
     setOk();
     notifyListeners();
   }

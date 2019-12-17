@@ -1,4 +1,5 @@
 import 'package:amap_map_fluttify/amap_map_fluttify.dart';
+import 'package:beyond_user/utlis/permission_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:beyond_user/config/app_constans.dart';
@@ -348,34 +349,53 @@ class LampInstallDetailState extends State<LampInstallDetail> {
         //地图点击
         onMapClicked: (latlng) {
           //showToast('${latlng.latitude},${latlng.longitude}');
+          _toShowLocation(model);
           return;
         },
         // 标识点击回调
         onMarkerClicked: (marker) {
-          marker.showInfoWindow();
+          //marker.showInfoWindow();
           return;
         },
         // 地图创建完成回调
         onMapCreated: (controller) async {
-
+          await requestPermission();
         },
       ),
     );
   }
 
+  _toShowLocation(LampInstallDetailViewModel model) async{
+    await Navigator.of(context).pushNamed(RouteName.map_show,arguments: LatLng(model.detailData.lat, model.detailData.lng));
+    model.getInstallDetail(lampSn);
+  }
+
+  Future<bool> requestPermission() async {
+    bool hasPermission = await PermissionUtil.requestLocation();
+
+    if (hasPermission) {
+      return true;
+    } else {
+      showToast('需要定位权限!');
+      return false;
+    }
+  }
+
   @override
   void initState() {
+    AmapCore.init(AppConstans.IOS_GAODE_KEY);
     super.initState();
   }
 
   _getMarkers(LampInstallDetailViewModel model) {
     return [MarkerOption(
       latLng: LatLng(model.detailData.lat, model.detailData.lng),
-      infoWindowEnabled: true,
+      infoWindowEnabled: false,
       title: '设备号:${model.detailData.sn}',
       snippet: '标签:${model.detailData.label}\r\n地址:${model.detailData.address}',
       iconUri: Uri.parse('images/3.0x/location_on.png'),
-      imageConfig: ImageConfiguration(size: Size(30, 48)),
+      imageConfig: ImageConfiguration(size: Size(30, 48)
+      ),
     )];
   }
 }

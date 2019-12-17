@@ -258,20 +258,10 @@ class Api {
   }
   
   //获取杀虫灯当前状态
-static Future getLampStatus(String lampNo,
-    String start,
-    String end,
-    int pageNum,
-    int pageSize) async{
-    var response = await http.post<Map>('${AppConstans.URL_LAMP_REST}lamp/details',queryParameters: {
-      'sn':lampNo,
-      'start':start,
-      'end':end,
-      'pageNum':pageNum,
-      'pageSize':pageSize
-    });
-    
-    return response.data['records'].map<LampDetailMsgModel>((item) => LampDetailMsgModel.fromJson(item)).toList();
+static Future getLampStatus(String lampNo) async{
+    var response = await http.get<Map>('${AppConstans.URL_LAMP_REST}lamp/lastDetail/$lampNo');
+
+    return LampDetailMsgModel.fromJson(response.data);
     
 }
 
