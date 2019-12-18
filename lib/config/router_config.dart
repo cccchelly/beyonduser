@@ -4,6 +4,7 @@ import 'package:beyond_user/ui/pages/apply_fix/fix_evaluate.dart';
 import 'package:beyond_user/ui/pages/image_show.dart';
 import 'package:beyond_user/ui/pages/indentify/orange_indentify.dart';
 import 'package:beyond_user/ui/pages/indentify/worm_indentify.dart';
+import 'package:beyond_user/ui/pages/indentify/worm_indentify_result.dart';
 import 'package:beyond_user/ui/pages/lamp_fix/fix_detail.dart';
 import 'package:beyond_user/ui/pages/lamp_fix/fix_list.dart';
 import 'package:beyond_user/ui/pages/lamp_install/lamp_install_detail.dart';
@@ -86,6 +87,7 @@ class RouteName {
   static const String map_show = '/mapshow';
 
   static const String worm_indentify = '/wormindentify';
+  static const String worm_indentify_result = '/wormindentifyresult';
   static const String orange_indentify = '/orangeindentify';
 
 }
@@ -162,6 +164,8 @@ class Router {
       case RouteName.worm_indentify:
         return NoAnimRouteBuilder(WormIndentify());
         break;
+      case RouteName.worm_indentify_result:
+        return NoAnimRouteBuilderWithParms(WormIndentifyResult(), settings);
       case RouteName.orange_indentify:
         return NoAnimRouteBuilder(OrangeIndentify());
         break;

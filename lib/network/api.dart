@@ -3,6 +3,7 @@ import 'package:beyond_user/config/net/http.dart';
 import 'package:beyond_user/model/device_num.dart';
 import 'package:beyond_user/model/spore_list_data.dart';
 import 'package:beyond_user/model/upload_picture_data.dart';
+import 'package:beyond_user/model/worm_indentify_data.dart';
 import 'package:dio/dio.dart';
 import 'package:beyond_user/config/app_constans.dart';
 import 'package:beyond_user/config/storage_manager.dart';
@@ -341,6 +342,15 @@ static Future getDeviceNum()async{
 static Future getSporeList()async{
     var response = await http.post<Map>('${AppConstans.URL_FOREMOOD}spore/query');
     return response.data['data'].map<SporeListData>((item) => SporeListData.fromJson(item)).toList();
+}
+
+//害虫定制化识别
+static Future wormIndentify(List<int> bytes,String name)async{
+  FormData formData = FormData.from({'file': UploadFileInfo.fromBytes(bytes, name)});
+
+  var response = await http.post<Map>('${AppConstans.URL_FOREMOOD}recognition/discern',data: formData);
+  return response.data['result'].map<WormIndentifyData>((item) => WormIndentifyData.fromJson(item)).toList();
+
 }
 
 
