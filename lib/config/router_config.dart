@@ -10,6 +10,7 @@ import 'package:beyond_user/ui/pages/lamp_fix/fix_list.dart';
 import 'package:beyond_user/ui/pages/lamp_install/lamp_install_detail.dart';
 import 'package:beyond_user/ui/pages/local_lamp/lamp_map_local.dart';
 import 'package:beyond_user/ui/pages/map_show.dart';
+import 'package:beyond_user/ui/pages/net_lamp/lamp_controller.dart';
 import 'package:beyond_user/ui/pages/net_lamp/lamp_detail_net.dart';
 import 'package:beyond_user/ui/pages/qrcode_page.dart';
 import 'package:beyond_user/ui/pages/spore/spore_detail.dart';
@@ -72,6 +73,7 @@ class RouteName {
   static const String lamp_map_local = '/lampmaplocal';
   static const String lamp_list_net = '/lamplistnet';
   static const String lamp_detail_net = '/lampdetailnet';
+  static const String lamp_controller = '/lampcontroller';
   static const String lamp_map_net = '/lampmapnet';
   static const String lamp_install_detail = '/lampinstalldetail';
 
@@ -142,6 +144,8 @@ class Router {
         return NoAnimRouteBuilderWithParms(LampListNet(), settings);
       case RouteName.lamp_detail_net:
         return NoAnimRouteBuilderWithParms(LampDetailNet(), settings);
+      case RouteName.lamp_controller:
+        return NoAnimRouteBuilderWithParms(LampController(), settings);
       case RouteName.lamp_map_net:
         return NoAnimRouteBuilderWithParms(LampMapNet(), settings);
       case RouteName.fix_list:
@@ -163,12 +167,10 @@ class Router {
         break;
       case RouteName.worm_indentify:
         return NoAnimRouteBuilder(WormIndentify());
-        break;
       case RouteName.worm_indentify_result:
         return NoAnimRouteBuilderWithParms(WormIndentifyResult(), settings);
       case RouteName.orange_indentify:
         return NoAnimRouteBuilder(OrangeIndentify());
-        break;
 
       default:
         return CupertinoPageRoute(

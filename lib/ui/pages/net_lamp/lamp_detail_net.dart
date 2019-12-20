@@ -1,3 +1,4 @@
+import 'package:beyond_user/config/router_config.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flustars/flustars.dart';
 import 'package:flutter/cupertino.dart';
@@ -79,18 +80,23 @@ class LampDetailNetState extends State<LampDetailNet>
                                         fontSize: 16,
                                         color: Color(LocalColors.text_222222)),
                                   ))),
-                          Container(
-                              decoration: BoxDecoration(
-                                  color: Theme.of(context).accentColor,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(12))),
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 6, horizontal: 10),
-                              child: Text(
-                                '设备反控',
-                                style: TextStyle(
-                                    fontSize: 12, color: Colors.white),
-                              )),
+                          InkWell(
+                            onTap: (){
+                              Navigator.of(context).pushNamed(RouteName.lamp_controller,arguments: did);
+                            },
+                            child: Container(
+                                decoration: BoxDecoration(
+                                    color: Theme.of(context).accentColor,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(12))),
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 6, horizontal: 10),
+                                child: Text(
+                                  '设备反控',
+                                  style: TextStyle(
+                                      fontSize: 12, color: Colors.white),
+                                )),
+                          ),
                         ],
                       ),
                     ),
