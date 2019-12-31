@@ -10,6 +10,7 @@ class LocalColors{
   static const int text_006F2D = 0xff006F2D;
   static const int text_FEFEFE = 0xffFEFEFE;
   static const int text_222222 = 0xff222222;
+  static const int text_aaaaaa = 0xffaaaaaa;
   static const int text_212121 = 0xff212121;
   static const int text_e7fffa = 0xffe7fffa;
   static const int text_111111 = 0xff111111;
@@ -30,6 +31,7 @@ class LocalColors{
   static const int bg_C4C5C9 = 0xffC4C5C9;
   static const int bg_85C226 = 0xff85C226;
   static const int bg_dddddd = 0xffdddddd;
+  static const int bg_999999 = 0xff999999;
   static const int bg_eeeeee = 0xffeeeeee;
   static const int bg_006F2D = 0xff006F2D;
   static const int bg_C27209 = 0xffC27209;

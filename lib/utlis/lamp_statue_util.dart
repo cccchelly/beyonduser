@@ -20,7 +20,7 @@ class LampStatueUtil{
     }
   }
 
-  String getLampStatuesEnum(){
+  getLampStatuesEnum(){
     if (isOffline()&&statusCode==0){
       return netError;
     }else if (!isOffline() && statusCode==0){
@@ -53,7 +53,7 @@ class LampStatueUtil{
   }
 
 
-  bool isOffline(){
+  isOffline(){
    num lastMills = DateUtil.getDateMsByTimeStr(lastTimeStr);
    num nowMills = DateTime.now().millisecondsSinceEpoch;
 

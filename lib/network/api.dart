@@ -293,6 +293,14 @@ static Future getLampStaticis(String startTime,
   
 }
 
+static Future lampControll(String sn,String msg)async{
+    var response = await http.post<Map>('${AppConstans.URL_LAMP_REST}lamp/sendMsg',queryParameters: {
+      'sn':sn,
+      'msg':msg
+    });
+    return response.data['data'] == AppConstans.resultSuccess;
+}
+
 //获取安装详情
 static Future getInstallDetail(String sn) async{
     var response = await http.get<Map>('${AppConstans.URL_AFTER_SALES}device/detail',queryParameters: {'sn':sn});

@@ -1,7 +1,7 @@
 
 class TimeAreaModel{
-  num _startTime;
-  num _endTime;
+  num _startTime = 0;
+  num _endTime = 0;
 
   num get startTime => _startTime;
 
